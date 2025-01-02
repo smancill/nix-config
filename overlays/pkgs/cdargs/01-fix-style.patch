@@ -1,0 +1,11 @@
+--- a/contrib/cdargs-bash.sh
++++ b/contrib/cdargs-bash.sh
+@@ -47,7 +47,7 @@
+         fi
+         [ -n "$dir" ] && dir=`echo "$dir" | sed 's/^[^ ]* //'`
+     fi
+-    if [ -z "$dir" -o "$dir" != "${dir/
++    if [ -z "$dir" ] || [ "$dir" != "${dir/
+ /}" ]; then
+         # okay, we need cdargs to resolve this one.
+         # note: intentionally retain any extra path to add back to selection.

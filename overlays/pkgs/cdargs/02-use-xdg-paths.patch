@@ -1,0 +1,103 @@
+diff -u b/contrib/cdargs-bash.sh b/contrib/cdargs-bash.sh
+--- b/contrib/cdargs-bash.sh
++++ b/contrib/cdargs-bash.sh
+@@ -16,6 +16,11 @@
+ CDARGS_SORT=0   # set to 1 if you want mark to sort the list
+ CDARGS_NODUPS=1 # set to 1 if you want mark to delete dups
+ 
++_cdargs_bookmarks_file=${XDG_DATA_HOME:-$HOME/.local/share}/cdargs/bookmarks
++_cdargs_result_file=${XDG_CACHE_HOME:-$HOME/.cache}/cdargsresult
++
++mkdir -p "$(dirname _cdargs_bookmarks_file)"
++
+ # --------------------------------------------- #
+ # Run the cdargs program to get the target      #
+ # directory to be used in the various context   #
+@@ -36,25 +41,25 @@
+     local bookmark extrapath
+     # if there is one exact match (possibly with extra path info after it),
+     # then just use that match without calling cdargs
+-    if [ -e "$HOME/.cdargs" ]; then
+-        dir=`grep "^$1 " "$HOME/.cdargs"`
++    if [ -e "$_cdargs_bookmarks_file" ]; then
++        dir=`grep "^$1 " "$_cdargs_bookmarks_file"`
+         if [ -z "$dir" ]; then
+             bookmark="${1/\/*/}"
+             if [ "$bookmark" != "$1" ]; then
+-                dir=`grep "^$bookmark " "$HOME/.cdargs"`
++                dir=`grep "^$bookmark " "$_cdargs_bookmarks_file"`
+                 extrapath=`echo "$1" | sed 's#^[^/]*/#/#'`
+             fi
+         fi
+         [ -n "$dir" ] && dir=`echo "$dir" | sed 's/^[^ ]* //'`
+     fi
+     if [ -z "$dir" ] || [ "$dir" != "${dir/
+ /}" ]; then
+         # okay, we need cdargs to resolve this one.
+         # note: intentionally retain any extra path to add back to selection.
+         dir=
+         if cdargs --noresolve "${1/\/*/}"; then
+-            dir=`cat "$HOME/.cdargsresult"`
+-            rm -f "$HOME/.cdargsresult";
++            dir=`cat "$_cdargs_result_file"`
++            rm -f "$_cdargs_result_file";
+         fi
+     fi
+     if [ -z "$dir" ]; then
+@@ -171,16 +176,16 @@
+     local tmpfile
+ 
+     # first clear any bookmarks with this same alias, if file exists
+-    if [[ "$CDARGS_NODUPS" && -e "$HOME/.cdargs" ]]; then
++    if [[ "$CDARGS_NODUPS" && -e "$_cdargs_bookmarks_file" ]]; then
+         tmpfile=`echo ${TEMP:-${TMPDIR:-/tmp}} | sed -e "s/\\/$//"`
+         tmpfile=$tmpfile/cdargs.$USER.$$.$RANDOM
+-        grep -v "^$1 " "$HOME/.cdargs" > $tmpfile && 'mv' -f $tmpfile "$HOME/.cdargs";
++        grep -v "^$1 " "$_cdargs_bookmarks_file" > "$tmpfile" && 'mv' -f "$tmpfile" "$_cdargs_bookmarks_file";
+     fi
+     # add the alias to the list of bookmarks
+     cdargs --add=":$1:`pwd`"; 
+     # sort the resulting list
+     if [ "$CDARGS_SORT" ]; then
+-        sort -o "$HOME/.cdargs" "$HOME/.cdargs";
++        sort -o "$_cdargs_bookmarks_file" "$_cdargs_bookmarks_file";
+     fi
+ }
+ # Oh, no! Not overwrite 'm' for stefan! This was 
+@@ -219,11 +224,11 @@
+ {
+     local cur bookmark dir strip oldIFS
+     COMPREPLY=()
+-    if [ -e "$HOME/.cdargs" ]; then
++    if [ -e "$_cdargs_bookmarks_file" ]; then
+         cur=${COMP_WORDS[COMP_CWORD]}
+         if [ "$cur" != "${cur/\//}" ]; then # if at least one /
+             bookmark="${cur/\/*/}"
+-            dir=`grep "^$bookmark " "$HOME/.cdargs" | sed 's#^[^ ]* ##'`
++            dir=$(grep "^$bookmark " "$_cdargs_bookmarks_file" | sed 's#^[^ ]* ##')
+             if [ -n "$dir" -a "$dir" = "${dir/
+ /}" -a -d "$dir" ]; then
+                 strip="${dir//?/.}"
+@@ -236,7 +241,7 @@
+                 IFS="$oldIFS"
+             fi
+         else
+-            COMPREPLY=( $( (echo $cur ; cat "$HOME/.cdargs") | \
++            COMPREPLY=( $( (echo $cur ; cat "$_cdargs_bookmarks_file") | \
+                            awk 'BEGIN {first=1}
+                                  {if (first) {cur=$0; l=length(cur); first=0}
+                                  else if (substr($1,1,l) == cur) {print $1}}' ) )
+--- a/src/cdargs.cpp
++++ b/src/cdargs.cpp
+@@ -166,9 +166,9 @@
+ 
+ } options;
+ 
+-const string Options::DEFAULT_LIST_FILE(".config/cdargs");
++const string Options::DEFAULT_LIST_FILE(".local/share/cdargs/bookmarks");
+ const string Options::DEFAULT_LIST_FILE_OLD(".cdargs");
+-const string Options::DEFAULT_RESULT_FILE("~/.cdargsresult");
++const string Options::DEFAULT_RESULT_FILE("~/.cache/cdargsresult");
+ 
+ void showVersion(void)
+ {

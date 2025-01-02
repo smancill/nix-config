@@ -1,0 +1,101 @@
+{ pkgs, unstable, ... }:
+
+{
+  home.stateVersion = "24.11";
+
+  home.packages = [
+    pkgs.age
+    pkgs.ansible
+    pkgs.ascii
+    pkgs.ascii
+    pkgs.asciinema
+    pkgs.atool
+    pkgs.bmon
+    pkgs.bzip2
+    pkgs.ccache
+    pkgs.clang-analyzer
+    pkgs.clang-tools
+    pkgs.cloc
+    pkgs.colordiff
+    pkgs.cppcheck
+    pkgs.cscope
+    pkgs.diff-pdf
+    pkgs.direnv
+    pkgs.dos2unix
+    pkgs.fd
+    pkgs.ffmpeg-full
+    pkgs.fzf
+    pkgs.gcal
+    pkgs.ghostscript
+    pkgs.git-when-merged
+    pkgs.gitFull
+    pkgs.gnu-wrapped.awk
+    pkgs.gnu-wrapped.coreutils
+    pkgs.gnu-wrapped.diffutils
+    pkgs.gnu-wrapped.findutils
+    pkgs.gnu-wrapped.grep
+    pkgs.gnu-wrapped.make
+    pkgs.gnu-wrapped.man-db
+    pkgs.gnu-wrapped.sed
+    pkgs.gnu-wrapped.tar
+    pkgs.gnupg
+    pkgs.gnuplot
+    pkgs.imagemagick
+    pkgs.gh
+    pkgs.gopass
+    pkgs.gradle-completion
+    pkgs.gzip
+    pkgs.htop
+    pkgs.jq
+    pkgs.ledger
+    pkgs.less
+    pkgs.lftp
+    pkgs.libfaketime
+    pkgs.libqalculate
+    pkgs.mediainfo
+    pkgs.mr
+    pkgs.ncdu_1
+    pkgs.nixfmt-rfc-style
+    pkgs.nmap
+    pkgs.openssh
+    pkgs.p7zip
+    pkgs.patchutils
+    pkgs.pdftk
+    pkgs.pkgdiff
+    pkgs.plantuml
+    pkgs.pstree
+    pkgs.python3
+    pkgs.ranger
+    pkgs.ripgrep
+    pkgs.rsync
+    pkgs.sc-im
+    pkgs.sd
+    pkgs.shellcheck
+    pkgs.srm
+    pkgs.stgit
+    pkgs.stow
+    pkgs.texlive-minimal
+    pkgs.tig
+    pkgs.tmux
+    pkgs.tree
+    pkgs.universal-ctags
+    pkgs.unzip
+    pkgs.wget
+    pkgs.xz
+    pkgs.yt-dlp
+    pkgs.zathura
+    pkgs.zip
+    pkgs.zstd
+  ] ++ [
+    unstable.neovim
+    unstable.nix-direnv
+    unstable.nixpkgs-review
+    unstable.ruff
+    unstable.vim
+  ] ++ [
+    pkgs.cdargs
+    pkgs.git-diff-image
+    pkgs.git-shift
+    pkgs.ran
+  ];
+}

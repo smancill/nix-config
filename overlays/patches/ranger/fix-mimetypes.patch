@@ -1,0 +1,13 @@
+diff --git i/ranger/core/fm.py w/ranger/core/fm.py
+index 6a7fa3a0..902a02b1 100644
+--- i/ranger/core/fm.py
++++ w/ranger/core/fm.py
+@@ -75,7 +75,7 @@ class FM(Actions,  # pylint: disable=too-many-instance-attributes
+         self.home_path = os.path.expanduser('~')
+ 
+         if not mimetypes.inited:
+-            extra_files = [self.relpath('data/mime.types'), os.path.expanduser("~/.mime.types")]
++            extra_files = [self.relpath('data/mime.types'), os.path.expanduser("~/.local/share/ranger/mime.types")]
+             mimetypes.init(mimetypes.knownfiles + extra_files)
+         self.mimetypes = mimetypes
+ 

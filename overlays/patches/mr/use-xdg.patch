@@ -1,0 +1,11 @@
+--- a/mr
++++ b/mr
+@@ -1465,7 +1465,7 @@
+ 
+ 	return 1 if $trust_all;
+ 
+-	my $trustfile=$ENV{HOME}."/.mrtrust";
++	my $trustfile=$ENV{XDG_STATE_HOME}."/mr/trust";
+ 
+ 	if (! %trusted) {
+ 		$trusted{$HOME_MR_CONFIG}=1;
