@@ -41,6 +41,7 @@
       ];
       specialArgs = {
         inherit inputs username;
+        hostname = "tatooine";
       };
     };
   };

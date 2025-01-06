@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, username, ... }:
+{ config, pkgs, inputs, username, hostname, ... }:
 
 {
 
@@ -49,8 +49,8 @@
   };
 
   networking = {
-    computerName = "maczillo";
-    hostName = "maczillo";
+    computerName = "${hostname}";
+    hostName = "${hostname}";
     knownNetworkServices = [
       "Wi-Fi"
     ];
