@@ -44,5 +44,31 @@
         hostname = "tatooine";
       };
     };
+
+    darwinConfigurations.macbook-pro-m4 = nix-darwin.lib.darwinSystem {
+      system = "aarch64-darwin";
+      modules = [
+        ./darwin.nix
+        home-manager.darwinModules.home-manager {
+          home-manager.useGlobalPkgs = true;
+          home-manager.useUserPackages = true;
+          home-manager.users.${username} = import ./home;
+          home-manager.extraSpecialArgs = {
+            unstable = import nixpkgs-unstable {
+              system = "aarch64-darwin";
+              overlays = [ (import ./overlays/unstable.nix) ];
+            };
+          };
+        }
+        ({
+          nixpkgs.overlays = overlays;
+          nixpkgs.config = { allowUnfree = true; };
+        })
+      ];
+      specialArgs = {
+        inherit inputs username;
+        hostname = "mustafar";
+      };
+    };
   };
 }

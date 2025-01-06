@@ -46,6 +46,8 @@
       keep-derivations = true
       keep-outputs = true
       use-xdg-base-directories = true
+    '' + lib.optionalString pkgs.stdenv.hostPlatform.isAarch64 ''
+      extra-platforms = x86_64-darwin aarch64-darwin
     '';
 
     gc = {
@@ -78,6 +80,8 @@
       "2606:4700:4700::1001"
     ];
   };
+
+  security.pam.enableSudoTouchIdAuth = true;
 
   system.defaults = {
     NSGlobalDomain = {
@@ -133,7 +137,7 @@
       show-process-indicators = true;
       show-recents = false;
       showhidden = true;
-      tilesize = 46;
+      tilesize = if pkgs.stdenv.hostPlatform.isAarch64 then 52 else 46;
     };
 
     finder = {
