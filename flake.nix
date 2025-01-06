@@ -19,7 +19,7 @@
     username = "smancill";
   in
   {
-    darwinConfigurations.macbook-pro-2013 = nix-darwin.lib.darwinSystem {
+    darwinConfigurations.macbook-pro-intel = nix-darwin.lib.darwinSystem {
       system = "x86_64-darwin";
       modules = [
         ./darwin.nix
