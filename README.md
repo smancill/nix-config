@@ -1,6 +1,6 @@
 # Nix configuration
 
-My system configuration using Nix and [Home Manager][home-manager].
+My system configuration using [Nix][nix] and [Home Manager][home-manager].
 
 ## macOS
 
@@ -27,6 +27,7 @@ $ darwin-rebuild switch --flake .#<name>
 TODO
 
 
+[nix]: https://nixos.org
 [determinate-installer]: https://github.com/DeterminateSystems/nix-installer
 [nix-darwin]: https://github.com/LnL7/nix-darwin/blob/master/README.md
 [home-manager]: https://github.com/nix-community/home-manager
