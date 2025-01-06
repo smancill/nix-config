@@ -6,27 +6,39 @@
   home.packages = [
     pkgs.age
     pkgs.ansible
-    pkgs.ascii
+    pkgs.ant
     pkgs.ascii
     pkgs.asciinema
+    pkgs.aspell
+    pkgs.aspellDicts.en
+    pkgs.aspellDicts.es
     pkgs.atool
     pkgs.bmon
     pkgs.bzip2
     pkgs.ccache
+    pkgs.checkbashisms
     pkgs.clang-analyzer
     pkgs.clang-tools
     pkgs.cloc
     pkgs.colordiff
+    pkgs.cookiecutter
     pkgs.cppcheck
     pkgs.cscope
+    pkgs.cuetools
     pkgs.diff-pdf
     pkgs.direnv
+    pkgs.ditaa
+    pkgs.doitlive
     pkgs.dos2unix
+    pkgs.doxygen
     pkgs.fd
     pkgs.ffmpeg-full
+    pkgs.flac
     pkgs.fzf
     pkgs.gcal
+    pkgs.gh
     pkgs.ghostscript
+    pkgs.git-extras
     pkgs.git-when-merged
     pkgs.gitFull
     pkgs.gnu-wrapped.awk
@@ -40,51 +52,86 @@
     pkgs.gnu-wrapped.tar
     pkgs.gnupg
     pkgs.gnuplot
-    pkgs.imagemagick
-    pkgs.gh
     pkgs.gopass
+    pkgs.gradle
     pkgs.gradle-completion
+    pkgs.graphviz
     pkgs.gzip
+    pkgs.hledger
     pkgs.htop
+    pkgs.httpie
+    pkgs.hyperfine
+    pkgs.imagemagick
+    pkgs.iperf
     pkgs.jq
     pkgs.ledger
     pkgs.less
     pkgs.lftp
     pkgs.libfaketime
     pkgs.libqalculate
+    pkgs.lzip
+    pkgs.maven
     pkgs.mediainfo
+    pkgs.meson
+    pkgs.mp3splt
+    pkgs.mpd
     pkgs.mr
-    pkgs.ncdu_1
+    pkgs.mypy
+    pkgs.ncdu
+    pkgs.ncmpcpp
+    pkgs.ninja
+    pkgs.niv
+    pkgs.nix-tree
+    pkgs.nix-update
+    pkgs.nix-zsh-completions
     pkgs.nixfmt-rfc-style
     pkgs.nmap
     pkgs.openssh
     pkgs.p7zip
+    pkgs.parallel
     pkgs.patchutils
     pkgs.pdftk
+    pkgs.perlPackages.ImageExifTool
     pkgs.pkgdiff
     pkgs.plantuml
+    pkgs.pngquant
     pkgs.pstree
+    pkgs.pv
+    pkgs.pypy3
     pkgs.python3
+    pkgs.python3Packages.ipython
+    pkgs.python3Packages.pipx
+    pkgs.qpdf
     pkgs.ranger
+    pkgs.rar
+    pkgs.rename
     pkgs.ripgrep
     pkgs.rsync
     pkgs.sc-im
     pkgs.sd
     pkgs.shellcheck
+    pkgs.shntool
     pkgs.srm
     pkgs.stgit
+    pkgs.stockfish
     pkgs.stow
     pkgs.texlive-minimal
     pkgs.tig
+    pkgs.tmate
     pkgs.tmux
+    pkgs.transmission_4
     pkgs.tree
     pkgs.universal-ctags
     pkgs.unzip
+    pkgs.w3m
+    pkgs.wdiff
     pkgs.wget
+    pkgs.wgetpaste
     pkgs.xz
     pkgs.yt-dlp
     pkgs.zathura
     pkgs.zip
+    pkgs.zsh-completions
     pkgs.zstd
   ] ++ [
     unstable.neovim
@@ -97,5 +144,6 @@
     pkgs.git-diff-image
     pkgs.git-shift
     pkgs.ran
+    pkgs.ripme
   ];
 }
