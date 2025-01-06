@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, username, ... }:
 
 {
 
@@ -136,7 +136,7 @@
     screencapture = {
       disable-shadow = true;
       type = "png";
-      location = "${config.users.users.smancill.home}/Downloads";
+      location = "~/Downloads";
     };
 
     trackpad = {
@@ -161,9 +161,9 @@
   time.timeZone = "America/Santiago";
 
   users = {
-    users.smancill = {
+    users.${username} = {
       shell = pkgs.zsh;
-      home = "/Users/smancill";
+      home = "/Users/${username}";
     };
   };
 }

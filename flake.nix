@@ -16,6 +16,7 @@
       (import ./overlays/local.nix)
       (import ./overlays/override.nix)
     ];
+    username = "smancill";
   in
   {
     darwinConfigurations.macbook-pro-2013 = nix-darwin.lib.darwinSystem {
@@ -25,7 +26,7 @@
         home-manager.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.smancill = import ./home.nix;
+          home-manager.users.${username} = import ./home.nix;
           home-manager.extraSpecialArgs = {
             unstable = import nixpkgs-unstable {
               system = "x86_64-darwin";
@@ -38,7 +39,9 @@
           nixpkgs.config = { allowUnfree = true; };
         })
       ];
-      specialArgs = { inherit inputs; };
+      specialArgs = {
+        inherit inputs username;
+      };
     };
   };
 }
