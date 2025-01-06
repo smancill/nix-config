@@ -1,21 +1,10 @@
-{ config, ... }:
+{ pkgs, lib, ... }:
 
 {
   homebrew = {
-    enable = false;
+    enable = true;
 
-    brews = [
-      # "bash"
-      # "bash-completion"
-      # "gromgit/fuse/encfs-mac"
-      # "git"
-      # "git-gui"
-      "pandoc"
-      "pandoc-crossref"
-      # "pyenv"
-      # "pyenv-virtualenv"
-      # "zsh"
-    ];
+    brews = [ ];
 
     casks = [
       "alt-tab"
@@ -25,62 +14,43 @@
       "cmake"
       "docker"
       "dropbox"
-      # "eclipse-installer"
       "emacs-mac"
       "firefox"
-      "flux"
-      "free-ruler"
       "google-chrome"
       "handbrake"
-      # "hyperswitch"
-      # "inkscape"
       "intellij-idea-ce"
       "iterm2"
       "jdownloader"
-      "jiggler"
-      "jubler"
       "jupyter-notebook-viewer"
       "keepingyouawake"
-      # "keycastr"
-      # "kid3"
-      # "kindle" (deprecated)
-      "krita"
-      "macfuse"
       "macvim"
       "megasync"
       "mkvtoolnix"
-      "mpv"
-      # "oversight"
-      "paintbrush"
       "pika"
-      # "protonvpn"
       "qbittorrent"
-      "qlimagesize"
-      # "qview"
-      "rar"
       "sigil"
-      # "skype"
-      "smcfancontrol"
-      # "sony-ps-remote-play"
-      # "suspicious-package"
+      "stolendata-mpv"
       "syncthing"
-      # "temurin21"
       "the-unarchiver"
       "transmission"
-      "tuxera-ntfs"
-      # "ukelele"
-      # "universal-media-server"
-      "virtualbox"
-      # "visual-studio-code"
-      # "vlc"
-      # "wezterm"
       "xquartz"
       "yacreader"
       "zoom"
+    ] ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 [
+      "tuxera-ntfs"
+    ] ++ lib.optionals pkgs.stdenv.hostPlatform.isAarch64 [
+      "ghostty"
+      "podman-desktop"
+      "protonvpn"
+    ] ++ [
+      "omnissa-horizon-client" 
     ];
 
+    global = {
+      autoUpdate = false;
+    };
+
     taps = [
-      # "gromgit/fuse"
       "railwaycat/emacsmacport"
     ];
   };

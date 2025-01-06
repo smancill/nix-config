@@ -1,6 +1,10 @@
 { config, lib, pkgs, inputs, username, hostname, ... }:
 
 {
+  imports = [
+    ./brew.nix
+  ];
+
   environment = {
     profiles = lib.mkOrder 700 [ "\$HOME/.local/state/nix/profile" ];
 
