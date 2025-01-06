@@ -1,8 +1,9 @@
-{ config, pkgs, inputs, username, hostname, ... }:
+{ config, lib, pkgs, inputs, username, hostname, ... }:
 
 {
-
   environment = {
+    profiles = lib.mkOrder 700 [ "\$HOME/.local/state/nix/profile" ];
+
     shells = with pkgs; [
       bashInteractive
       zsh
@@ -46,6 +47,21 @@
       keep-outputs = true
       use-xdg-base-directories = true
     '';
+
+    gc = {
+      automatic = true;
+      options = "--delete-older-than 7d";
+    };
+
+    registry = {
+      system.flake = inputs.self;
+      nixpkgs.flake = inputs.nixpkgs;
+      unstable.flake = inputs.nixpkgs-unstable;
+    };
+
+    settings = {
+      trusted-users = [ username ];
+    };
   };
 
   networking = {
