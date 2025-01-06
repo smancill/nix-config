@@ -179,6 +179,8 @@ in
     ];
   });
 
+  ncdu = if final.stdenv.hostPlatform.isAarch64 then prev.ncdu else prev.ncdu_1;
+
   ranger = prev.ranger.overrideAttrs (oldAttrs: {
     patches = [
       ./patches/ranger/fix-mimetypes.patch

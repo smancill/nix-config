@@ -9,10 +9,8 @@
     casks = [
       "alt-tab"
       "balenaetcher"
-      "calibre"
       "chessx"
       "cmake"
-      "docker"
       "dropbox"
       "emacs-mac"
       "firefox"
@@ -27,7 +25,6 @@
       "megasync"
       "mkvtoolnix"
       "pika"
-      "qbittorrent"
       "sigil"
       "stolendata-mpv"
       "syncthing"
@@ -35,15 +32,17 @@
       "transmission"
       "xquartz"
       "yacreader"
-      "zoom"
     ] ++ lib.optionals pkgs.stdenv.hostPlatform.isx86_64 [
       "tuxera-ntfs"
     ] ++ lib.optionals pkgs.stdenv.hostPlatform.isAarch64 [
+      "calibre"
+      "docker"
       "ghostty"
       "podman-desktop"
       "protonvpn"
     ] ++ [
-      "omnissa-horizon-client" 
+      "omnissa-horizon-client"
+      "zoom"
     ];
 
     global = {
