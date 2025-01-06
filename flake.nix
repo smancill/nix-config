@@ -26,7 +26,7 @@
         home-manager.darwinModules.home-manager {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.${username} = import ./home.nix;
+          home-manager.users.${username} = import ./home;
           home-manager.extraSpecialArgs = {
             unstable = import nixpkgs-unstable {
               system = "x86_64-darwin";
