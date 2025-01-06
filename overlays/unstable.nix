@@ -11,7 +11,7 @@ let
         ruby = false;
       };
     };
-  }).overrideAttrs (finalAttrs: rec {
+  }).overrideAttrs (oldAttrs: rec {
     pname = "vim-custom";
   });
 
@@ -29,7 +29,7 @@ in
     paths = [ customVim ];
 
     # CoC support
-    buildInputs = [ prev.makeWrapper final.nodejs ];
+    buildInputs = [ final.makeWrapper final.nodejs ];
     postBuild = ''
       wrapProgram "$out/bin/vim" --prefix PATH : "${final.nodejs}/bin"
     '';

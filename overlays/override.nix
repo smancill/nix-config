@@ -164,7 +164,7 @@ in
 
   gnu-wrapped = gnu;
 
-  gradle-completion = prev.gradle-completion.overrideAttrs (finalAttrs: {
+  gradle-completion = prev.gradle-completion.overrideAttrs (oldAttrs: {
     postPatch = ''
       substituteInPlace _gradle \
           --replace 'cache_dir="$HOME/.gradle/completion"' 'cache_dir="''${GRADLE_USER_HOME:-HOME/.gradle}/completion"'
@@ -173,13 +173,13 @@ in
 
   texlive-minimal = overridePriority latexPackages.texlive 4;
 
-  mr = prev.mr.overrideAttrs (finalAttrs: {
+  mr = prev.mr.overrideAttrs (oldAttrs: {
     patches = [
       ./patches/mr/use-xdg.patch
     ];
   });
 
-  ranger = prev.ranger.overrideAttrs (finalAttrs: {
+  ranger = prev.ranger.overrideAttrs (oldAttrs: {
     patches = [
       ./patches/ranger/fix-mimetypes.patch
     ];
