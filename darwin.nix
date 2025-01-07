@@ -117,6 +117,7 @@
       PMPrintingExpandedStateForPrint = true;
       PMPrintingExpandedStateForPrint2 = true;
       "com.apple.keyboard.fnState" = true;
+      "com.apple.mouse.tapBehavior" = 1;
       "com.apple.sound.beep.feedback" = 0;
       "com.apple.sound.beep.volume" = 0.0;
       "com.apple.swipescrolldirection" = false;
@@ -126,6 +127,13 @@
       allowdownloadsignedenabled = 1;
       allowsignedenabled = 1;
       globalstate = 1;
+    };
+
+    controlcenter = {
+      Bluetooth = true;
+      FocusModes = false;
+      NowPlaying = false;
+      Sound = true;
     };
 
     dock = {
@@ -151,14 +159,25 @@
       FXPreferredViewStyle = "Nlsv";
       ShowPathbar = true;
       ShowStatusBar = false;
+      _FXShowPosixPathInTitle = true;
+      _FXSortFoldersFirst = true;
     };
 
     loginwindow = {
       GuestEnabled = false;
     };
 
+    menuExtraClock = {
+      Show24Hour = true;
+      ShowDate = 1;
+      ShowDayOfMonth = true;
+      ShowDayOfWeek = true;
+      ShowSeconds = false;
+    };
+
     screencapture = {
       disable-shadow = true;
+      include-date = false;
       type = "png";
       location = "~/Downloads";
     };
@@ -167,6 +186,11 @@
       Clicking = true;
       Dragging = true;
       TrackpadRightClick = true;
+    };
+
+    universalaccess = {
+      reduceMotion = true;
+      reduceTransparency = true;
     };
   };
 
