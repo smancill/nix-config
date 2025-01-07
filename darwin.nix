@@ -24,6 +24,9 @@
       '')
     ];
 
+    systemPath = lib.mkIf pkgs.stdenv.hostPlatform.isAarch64
+      (lib.mkOrder 1100 [ "/opt/homebrew/bin" ]);
+
     variables = {
       EDITOR = "vim";
       VISUAL = "vim";
