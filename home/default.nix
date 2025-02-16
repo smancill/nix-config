@@ -148,4 +148,9 @@
     pkgs.ran
     pkgs.ripme
   ];
+
+  # Shell
+  home.file.".hushlogin" = {
+    text = "";
+  };
 }
