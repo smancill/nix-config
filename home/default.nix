@@ -1,4 +1,4 @@
-{ pkgs, unstable, ... }:
+{ lib, pkgs, unstable, ... }:
 
 {
   home.stateVersion = "24.11";
@@ -148,6 +148,16 @@
     pkgs.ran
     pkgs.ripme
   ];
+
+  # GnuPG
+  home.activation = {
+    # Need to kill gpg-agent from previous generation
+    kill-gpg-agent = lib.hm.dag.entryAfter ["writeBoundary"] ''
+      if /usr/bin/pgrep -x gpg-agent; then
+          /usr/bin/pkill -x gpg-agent
+      fi
+    '';
+  };
 
   # Shell
   home.file.".hushlogin" = {
