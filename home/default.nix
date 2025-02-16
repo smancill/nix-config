@@ -149,6 +149,11 @@
     pkgs.ripme
   ];
 
+  # Git
+  home.file.".local/bin/diff-highlight" = {
+    source = "${pkgs.git}/share/git/contrib/diff-highlight/diff-highlight";
+  };
+
   # GnuPG
   home.activation = {
     # Need to kill gpg-agent from previous generation
