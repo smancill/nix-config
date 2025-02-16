@@ -3,6 +3,8 @@
 {
   home.stateVersion = "24.11";
 
+  home.preferXdgDirectories = true;
+
   home.packages = [
     pkgs.age
     pkgs.ansible
