@@ -100,7 +100,7 @@
     pkgs.pstree
     pkgs.pv
     pkgs.pypy3
-    pkgs.python3
+    pkgs.python313
     pkgs.python3Packages.ipython
     pkgs.python3Packages.pipx
     pkgs.qpdf
