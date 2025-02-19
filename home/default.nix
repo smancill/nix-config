@@ -28,7 +28,6 @@
     pkgs.cscope
     pkgs.cuetools
     pkgs.diff-pdf
-    pkgs.direnv
     pkgs.ditaa
     pkgs.doitlive
     pkgs.dos2unix
@@ -137,7 +136,6 @@
     pkgs.zstd
   ] ++ [
     unstable.neovim
-    unstable.nix-direnv
     unstable.nixpkgs-review
     unstable.ruff
     unstable.vim
@@ -148,6 +146,15 @@
     pkgs.ran
     pkgs.ripme
   ];
+
+  # Direnv
+  programs.direnv = {
+    enable = true;
+    nix-direnv = {
+      enable = true;
+      package = unstable.nix-direnv;
+    };
+  };
 
   # Git
   home.file.".local/bin/diff-highlight" = {
