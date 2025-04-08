@@ -181,6 +181,7 @@
     screencapture = {
       disable-shadow = true;
       include-date = false;
+      show-thumbnail = true;
       type = "png";
       location = "~/Downloads";
     };
