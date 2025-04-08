@@ -89,6 +89,7 @@
     pkgs.nmap
     pkgs.openssh
     pkgs.p7zip
+    pkgs.pandoc
     pkgs.parallel
     pkgs.patchutils
     pkgs.pdftk
