@@ -88,7 +88,7 @@
     ];
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
+  security.pam.services.sudo_local.touchIdAuth = true;
 
   system.defaults = {
     NSGlobalDomain = {
@@ -205,6 +205,8 @@
 
   # Set Git commit hash for darwin-version.
   system.configurationRevision = inputs.self.rev or inputs.self.dirtyRev or null;
+
+  system.primaryUser = "${username}";
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog

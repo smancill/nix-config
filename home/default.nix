@@ -1,7 +1,7 @@
 { lib, pkgs, unstable, ... }:
 
 {
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.05";
 
   home.preferXdgDirectories = true;
 
@@ -99,7 +99,6 @@
     pkgs.pngquant
     pkgs.pstree
     pkgs.pv
-    pkgs.pypy3
     pkgs.python313
     pkgs.python3Packages.ipython
     pkgs.python3Packages.pipx

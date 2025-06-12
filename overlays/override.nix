@@ -184,6 +184,7 @@ in
   ranger = prev.ranger.overrideAttrs (oldAttrs: {
     patches = [
       ./patches/ranger/fix-mimetypes.patch
+      ./patches/ranger/fix-path-regex.patch
     ];
   });
 }
