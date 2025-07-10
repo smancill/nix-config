@@ -196,6 +196,12 @@
       reduceMotion = true;
       reduceTransparency = true;
     };
+
+    CustomUserPreferences = {
+      kCFPreferencesAnyApplication = {
+        TSMLanguageIndicatorEnabled = 0;
+      };
+    };
   };
 
   system.keyboard = {
