@@ -103,7 +103,6 @@
     pkgs.python3Packages.ipython
     pkgs.python3Packages.pipx
     pkgs.qpdf
-    pkgs.ranger
     pkgs.rar
     pkgs.rename
     pkgs.ripgrep
@@ -137,6 +136,7 @@
   ] ++ [
     unstable.neovim
     unstable.nixpkgs-review
+    unstable.ranger
     unstable.ruff
     unstable.vim
   ] ++ [
