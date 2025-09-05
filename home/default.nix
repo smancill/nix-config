@@ -133,6 +133,8 @@
     pkgs.zip
     pkgs.zsh-completions
     pkgs.zstd
+  ] ++ lib.optionals pkgs.stdenv.hostPlatform.isDarwin [
+    pkgs.pinentry_mac
   ] ++ [
     unstable.neovim
     unstable.nixpkgs-review

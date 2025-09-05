@@ -201,6 +201,9 @@
       kCFPreferencesAnyApplication = {
         TSMLanguageIndicatorEnabled = 0;
       };
+      "org.gpgtools.pinentry-mac" = {
+        UseKeychain = false;
+      };
     };
   };
 
