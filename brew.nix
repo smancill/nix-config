@@ -19,7 +19,6 @@
       "intellij-idea-ce"
       "iterm2"
       "jdownloader"
-      "jupyter-notebook-viewer"
       "keepingyouawake"
       "macvim-app"
       "megasync"
