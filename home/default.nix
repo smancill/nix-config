@@ -58,6 +58,7 @@
     pkgs.gradle-completion
     pkgs.graphviz
     pkgs.gzip
+    pkgs.harper
     pkgs.hledger
     pkgs.htop
     pkgs.httpie
