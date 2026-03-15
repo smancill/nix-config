@@ -35,7 +35,7 @@
 
   fonts.packages = [
     pkgs.fontin
-    pkgs.vistafonts
+    pkgs.vista-fonts
   ];
 
   programs.zsh = {
@@ -74,6 +74,11 @@
   };
 
   networking = {
+    applicationFirewall = {
+      allowSigned = true;
+      allowSignedApp = true;
+      enable = true;
+    };
     computerName = "${hostname}";
     hostName = "${hostname}";
     knownNetworkServices = [
@@ -126,11 +131,6 @@
       "com.apple.swipescrolldirection" = false;
     };
 
-    alf = {
-      allowdownloadsignedenabled = 1;
-      allowsignedenabled = 1;
-      globalstate = 1;
-    };
 
     controlcenter = {
       Bluetooth = true;

@@ -13,7 +13,7 @@ $ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/ni
 Install [nix-darwin][nix-darwin] and the configuration:
 
 ```
-$ sudo nix run nix-darwin/nix-darwin-25.05#darwin-rebuild -- switch --flake .#<name>
+$ sudo nix run nix-darwin/nix-darwin-25.11#darwin-rebuild -- switch --flake .#<name>
 ```
 
 Apply changes to the system:
