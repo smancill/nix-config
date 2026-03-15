@@ -76,7 +76,7 @@ let
         ## other collections
         collection-latexrecommended
         collection-metapost
-        collection-xetex
+        collection-luatex
 
         ## collection-binextra
         chktex
@@ -116,6 +116,7 @@ let
         physics
         siunitx
         framed
+        tabularray
         # logreq
         # titlesec
         # preprint
