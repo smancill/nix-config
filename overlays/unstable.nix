@@ -1,19 +1,19 @@
 final: prev:
 
 let
-  customVim = (final.vim_configurable.override {
+  vim-custom = (final.vim-full.override {
     config = {
       vim = {
         gui = "none";
-        darwin = final.stdenv.isDarwin;
+        darwin = final.stdenv.hostPlatform.isDarwin;
         lua = true;
         perl = false;
         ruby = false;
       };
     };
-  }).overrideAttrs (oldAttrs: rec {
+  }).overrideAttrs {
     pname = "vim-custom";
-  });
+  };
 
 in
 {
@@ -25,8 +25,8 @@ in
   };
 
   vim = final.symlinkJoin {
-    name = "vim-${customVim.version}";
-    paths = [ customVim ];
+    name = "vim-${vim-custom.version}";
+    paths = [ vim-custom ];
 
     # CoC support
     buildInputs = [ final.makeWrapper final.nodejs ];
