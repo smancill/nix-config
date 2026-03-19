@@ -162,6 +162,9 @@
   home.file.".local/bin/diff-highlight" = {
     source = "${pkgs.git}/share/git/contrib/diff-highlight/diff-highlight";
   };
+  home.file.".local/bin/git-jump" = {
+    source = "${pkgs.git}/share/git/contrib/git-jump/git-jump";
+  };
 
   # GnuPG
   home.activation = {
